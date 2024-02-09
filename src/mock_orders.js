@@ -1,4 +1,4 @@
-[
+export default ([
     {
       "account": "10000000",
       "operation": "Buy",
@@ -55,4 +55,4 @@
       "no_ref": 95749207,
       "ext_ref": "2-XXXXXX1-0"
     }
-  ]
+  ])
