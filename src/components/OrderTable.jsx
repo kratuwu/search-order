@@ -71,6 +71,9 @@ function Row(props) {
         <TableCell align='right' className='!hidden lg:!table-cell'>{row.price}</TableCell>
         <TableCell align='right'>{row.status}</TableCell>
         <TableCell align='right' className='!hidden lg:!table-cell'>{row.date}</TableCell>
+        <TableCell align='right' className='!hidden lg:!table-cell'>{row.expiration}</TableCell>
+        <TableCell align='right' className='!hidden lg:!table-cell'>{row.no_ref}</TableCell>
+        <TableCell align='right' className='!hidden lg:!table-cell'>{row.ext_ref}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -132,21 +135,39 @@ export const OrderTable =  (props) =>{
             <TableCell className='!hidden lg:!table-cell'>Price</TableCell>
             <TableCell >Status</TableCell>
             <TableCell className='!hidden lg:!table-cell'>
-            <TableSortLabel
-              active={orderBy === "date"}
-              direction={orderBy === "date" ? order : 'asc'}
-              onClick={handleRequestSort("date")}
-            >
-              Date
+              <TableSortLabel
+                active={orderBy === "date"}
+                direction={orderBy === "date" ? order : 'asc'}
+                onClick={handleRequestSort("date")}
+              >
+                Date
 
-              {orderBy === "date" ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
+                {orderBy === "date" ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                  </Box>
+                ) : null}
 
-            </TableSortLabel>
+              </TableSortLabel>
             </TableCell>
+            <TableCell className='!hidden lg:!table-cell'>
+              <TableSortLabel
+                active={orderBy === "expiration"}
+                direction={orderBy === "expiration" ? order : 'asc'}
+                onClick={handleRequestSort("expiration")}
+              >
+                Expiration
+
+                {orderBy === "expiration" ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                  </Box>
+                ) : null}
+
+              </TableSortLabel>
+            </TableCell>
+            <TableCell className='!hidden lg:!table-cell'>No. Ref.</TableCell>
+            <TableCell className='!hidden lg:!table-cell'>Ext. Ref.</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

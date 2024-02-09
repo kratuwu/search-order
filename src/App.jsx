@@ -8,7 +8,7 @@ import mockOrders from './mock_orders'
 function App() {
   const [ filterData, setFilterData] = useState(mockOrders)
   const search =(e) => {
-    console.log(e)
+    // console.log(e)
   }
   
   return (
