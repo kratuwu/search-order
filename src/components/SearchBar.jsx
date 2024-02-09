@@ -10,8 +10,7 @@ export const SearchBar = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex">
-      
+    <form onSubmit={handleSubmit(onSubmit)} className="lg:flex mb-4">
       <div className="flex items-center mr-4 mb-4">
         <label htmlFor="period" className="mr-1">Period</label>
         <select
@@ -19,7 +18,7 @@ export const SearchBar = (props) => {
           {...register('period')}
           style={{ height: '2.25rem' }} 
           defaultValue="transmission"
-          className="border border-gray-300 rounded px-3 w-32"
+          className="border border-gray-300 rounded px-3 w-full lg:w-auto"
         >
           <option value="transmission">Transmission</option>
         </select>
@@ -31,7 +30,7 @@ export const SearchBar = (props) => {
           {...register('status')}
           style={{ height: '2.25rem' }} 
           defaultValue="waiting"
-          className="border border-gray-300 rounded px-3 w-32"
+          className="border border-gray-300 rounded px-3 w-full lg:w-auto"
         >
           <option value="waiting">Waiting</option>
         </select>
@@ -44,7 +43,7 @@ export const SearchBar = (props) => {
           {...register('fromDate')} 
           defaultValue={today} 
           placeholder="From Date" 
-          className="border border-gray-300 rounded px-3 py-1"
+          className="border border-gray-300 rounded px-3 py-1 w-full lg:w-auto"
         />
       </div>
       <div className="flex items-center mr-4 mb-4">
@@ -55,11 +54,11 @@ export const SearchBar = (props) => {
           {...register('toDate')} 
           defaultValue={today} 
           placeholder="To Date" 
-          className="border border-gray-300 rounded px-3 py-1"
+          className="border border-gray-300 rounded px-3 py-1 w-full lg:w-auto"
         />      </div>
       <button 
-        type="submit" className="bg-blue-500 text-white px-3 py-1 rounded-full ml-4"
-        style={{ height: 'calc(2.25rem + 2px)' }} 
+        type="submit" className="bg-blue-500 text-white px-6 py-1 rounded-full lg:ml-1 w-full lg:w-auto"
+        style={{ height: 'calc(2.25rem)' }} 
       >Search</button>
     </form>
   );
