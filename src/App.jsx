@@ -11,7 +11,6 @@ function App() {
     console.log(e)
   }
   
-
   return (
     <>
       <SearchBar onSearch={search}/>

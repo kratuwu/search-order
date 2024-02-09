@@ -1,5 +1,4 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -9,14 +8,33 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import TableSortLabel from '@mui/material/TableSortLabel';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { visuallyHidden } from '@mui/utils';
+
+
+function descendingComparator(a, b, orderBy) {
+  if (b[orderBy] < a[orderBy]) {
+    return -1;
+  }
+  if (b[orderBy] > a[orderBy]) {
+    return 1;
+  }
+  return 0;
+}
+
+function getComparator(order, orderBy) {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
+}
 
 function Row(props) {
   const { row } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <React.Fragment>
@@ -82,6 +100,34 @@ function Row(props) {
 }
 
 export const OrderTable =  (props) =>{
+  
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('date');
+
+  const handleRequestSort = (property) => (event) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+
+  const stableSort = (array, comparator) => {
+    const stabilizedThis = array.map((el, index) => [el, index]);
+    stabilizedThis.sort((a, b) => {
+      const order = comparator(a[0], b[0]);
+      if (order !== 0) {
+        return order;
+      }
+      return a[1] - b[1];
+    });
+    return stabilizedThis.map((el) => el[0]);
+  }
+
+  const visibleRows = React.useMemo(
+    () =>
+      stableSort(props.data, getComparator(order, orderBy)),
+    [order, orderBy],
+  );
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -96,11 +142,26 @@ export const OrderTable =  (props) =>{
             <TableCell className='!hidden lg:!table-cell'>Filled Qty</TableCell>
             <TableCell className='!hidden lg:!table-cell'>Price</TableCell>
             <TableCell >Status</TableCell>
-            <TableCell className='!hidden lg:!table-cell'>Date</TableCell>
+            <TableCell className='!hidden lg:!table-cell'>
+            <TableSortLabel
+              active={orderBy === "date"}
+              direction={orderBy === "date" ? order : 'asc'}
+              onClick={handleRequestSort("date")}
+            >
+              Date
+
+              {orderBy === "date" ? (
+                <Box component="span" sx={visuallyHidden}>
+                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                </Box>
+              ) : null}
+
+            </TableSortLabel>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.data?.map((order) => (
+          {visibleRows.map((order) => (
             <Row key={order.account} row={order} />
           ))}
         </TableBody>
