@@ -114,7 +114,7 @@ export const OrderTable = (props) => {
         </TableHead>
         <TableBody>
           {visibleRows.map((order) => (
-            <OrderRow key={order.account} row={order} />
+            <OrderRow key={order.ref_number} row={order} />
           ))}
         </TableBody>
       </Table>
