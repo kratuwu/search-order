@@ -6,6 +6,21 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  
+## Prerequisites
+- **Node.js**: This project requires **Node.js 18 or later** (compatible with Vite 6).
+  - Recommended version: **Node.js 20**
+  - Check your installed version with:
+    ```sh
+    node -v
+    ```
+  - If you need to install or update Node.js, visit [nodejs.org](https://nodejs.org/).
+
+- **Package Manager**: Use `npm`, `yarn`, or `pnpm` to install dependencies.
+  - Install dependencies with:
+    ```sh
+    npm install
+    ```
 
 ## Expanding the ESLint configuration
 
