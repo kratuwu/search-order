@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { SearchBar } from "./components/SearchBar";
 import mockOrders from './mock_orders'
+import { OrderTable } from "./components/OrderTable";
 import Banner from "./components/Banner";
 
 function App() {
@@ -11,10 +12,11 @@ function App() {
   const [ filterData, setFilterData] = useState(mockOrders)
   return (
     <>
-      <div className="flex place-content-between">
+      <header className="lg:flex place-content-between mb-4">
         <Banner count={filterData.length}/>
         <SearchBar onSearch={search}/>
-      </div>
+      </header>
+      <OrderTable data={filterData}/>
     </>
   );
 }

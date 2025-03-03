@@ -11,7 +11,7 @@ export const SearchBar = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="lg:flex self-center">
-      <div className="flex items-center mr-4 mb-4">
+      <div className="flex items-center lg:mr-4 mb-4">
         <label htmlFor="period" className="mr-1">
           Period
         </label>
@@ -25,7 +25,7 @@ export const SearchBar = (props) => {
           <option value="transmission">Transmission</option>
         </select>
       </div>
-      <div className="flex items-center mr-4 mb-4">
+      <div className="flex items-center lg:mr-4 mb-4">
         <label htmlFor="status" className="mr-1">
           Status
         </label>
@@ -53,7 +53,7 @@ export const SearchBar = (props) => {
             className="border border-gray-300 rounded px-3 py-1 w-full lg:w-auto"
           />
         </div>
-        <div className="flex items-center mr-4 mb-4 grow">
+        <div className="flex items-center lg:mr-4 mb-4 grow">
           <label htmlFor="fromDate" className="mr-1">
             To
           </label>
