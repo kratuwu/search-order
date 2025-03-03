@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
+import OrderRow from "./OrderRow";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -113,7 +114,7 @@ export const OrderTable = (props) => {
         </TableHead>
         <TableBody>
           {visibleRows.map((order) => (
-            <Row key={order.account} row={order} />
+            <OrderRow key={order.account} row={order} />
           ))}
         </TableBody>
       </Table>
