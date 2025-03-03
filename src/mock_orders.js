@@ -1,5 +1,6 @@
 export default [
   {
+    title: "FIRST-NAME LAST-NAME ( 10103ZA - US Margin)",
     account: "10000000",
     operation: "Buy",
     symbol: "NA",
@@ -29,6 +30,7 @@ export default [
     ],
   },
   {
+    title: "FIRST-NAME LAST-NAME ( 10103ZA - US Margin)",
     account: "00000001",
     operation: "Buy",
     symbol: "NA",
@@ -58,6 +60,7 @@ export default [
     ],
   },
   {
+    title: "FIRST-NAME LAST-NAME ( 10103ZA - US Margin)",
     account: "00000002",
     operation: "Buy",
     symbol: "NA",
@@ -87,6 +90,7 @@ export default [
     ],
   },
   {
+    title: "FIRST-NAME LAST-NAME ( 10103ZA - US Margin)",
     account: "00000003",
     operation: "Buy",
     symbol: "NA",

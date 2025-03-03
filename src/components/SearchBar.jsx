@@ -69,7 +69,7 @@ export const SearchBar = (props) => {
       </div>
       <button
         type="submit"
-        className="bg-blue-500 text-white px-6 py-1 rounded-full lg:ml-1 w-full lg:w-auto"
+        className="bg-sky-700 text-white px-6 py-1 rounded-full lg:ml-1 w-full lg:w-auto"
         style={{ height: "calc(2.25rem)" }}
       >
         Search

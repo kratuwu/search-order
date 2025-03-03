@@ -59,8 +59,7 @@ export const OrderTable = (props) => {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Account</TableCell>
+            <TableCell align="center">Account</TableCell>
             <TableCell align="center">Operation</TableCell>
             <TableCell align="center">Symbol</TableCell>
             <TableCell className="!hidden lg:!table-cell">
